@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rožić Architects & Partners — Architecture Studio, Rijeka</title>
+  <meta name="description" content="Rožić Architects & Partners — an architecture studio from Rijeka specialising in residential, commercial and public projects on the Adriatic coast." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --dark:    #111111;
+      --mid:     #1c1c1c;
+      --border:  #2a2a2a;
+      --stone:   #3a3530;
+      --gold:    #c8a96e;
+      --gold-lt: #e2c98f;
+      --cream:   #f0ead8;
+      --muted:   #888880;
+      --white:   #fafaf8;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Montserrat', sans-serif;
+      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── Custom cursor ── */
+    #cursor {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      pointer-events: none; mix-blend-mode: difference;
+    }
+    #cursor-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gold); margin: -4px 0 0 -4px;
+      transition: transform 0.15s var(--ease);
+      position: absolute;
+    }
+    #cursor-ring {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--gold); margin: -18px 0 0 -18px;
+      position: absolute; opacity: 0.5;
+      transition: transform 0.35s var(--ease), width 0.3s, height 0.3s, margin 0.3s;
+    }
+    body.hovering #cursor-ring {
+      width: 56px; height: 56px; margin: -28px 0 0 -28px; opacity: 0.3;
+    }
+
+    /* ── Noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 9000;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 60px;
+      transition: background 0.4s var(--ease), padding 0.4s var(--ease);
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      padding: 18px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 14px;
+      text-decoration: none;
+    }
+    .nav-logo svg { width: 36px; height: 36px; }
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 400; letter-spacing: 0.12em;
+      color: var(--white); text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .nav-logo-text span { display: block; font-size: 10px; font-family: var(--font-body); font-weight: 300; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+
+
+    .nav-links { display: flex; gap: 44px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 100%;
+      height: 1px; background: var(--gold);
+      transition: right 0.3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { right: 0; }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: none; background: none; border: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 26px; height: 1px;
+      background: var(--white); transition: transform 0.3s, opacity 0.3s, width 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 900;
+      background: var(--black); flex-direction: column;
+      align-items: center; justify-content: center; gap: 40px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-display); font-size: 42px; font-weight: 300;
+      color: var(--white); text-decoration: none; letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; height: 100vh; min-height: 700px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 60px 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.7) 60%, rgba(10,10,10,1) 100%),
+        linear-gradient(135deg, #1a1714 0%, #0f0e0c 40%, #161310 70%, #0a0908 100%);
+    }
+    /* Geometric concrete-texture lines */
+    .hero-lines {
+      position: absolute; inset: 0; pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-lines svg { width: 100%; height: 100%; opacity: 0.07; }
+
+    .hero-tag {
+      position: relative; z-index: 2;
+      font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 1s var(--ease) 0.3s forwards;
+    }
+    .hero-title {
+      position: relative; z-index: 2;
+      font-family: var(--font-display); font-size: clamp(52px, 8vw, 110px);
+      font-weight: 300; line-height: 1.0; letter-spacing: -0.01em;
+      color: var(--white);
+      opacity: 0; animation: fadeUp 1s var(--ease) 0.5s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-lt); }
+    .hero-sub {
+      position: relative; z-index: 2;
+      max-width: 480px; margin-top: 28px;
+      font-size: 13px; line-height: 1.9; color: var(--muted);
+      opacity: 0; animation: fadeUp 1s var(--ease) 0.7s forwards;
+    }
+    .hero-cta {
+      position: relative; z-index: 2; margin-top: 48px;
+      display: flex; gap: 24px; align-items: center;
+      opacity: 0; animation: fadeUp 1s var(--ease) 0.9s forwards;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 36px; border: 1px solid var(--gold);
+      color: var(--gold); text-decoration: none;
+      font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn-primary:hover { background: var(--gold); color: var(--black); }
+    .btn-ghost {
+      color: var(--muted); text-decoration: none;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .btn-ghost:hover { color: var(--white); }
+
+    .hero-scroll {
+      position: absolute; right: 60px; bottom: 80px; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      opacity: 0; animation: fadeIn 1s var(--ease) 1.4s forwards;
+    }
+    .hero-scroll span {
+      font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--muted); writing-mode: vertical-rl;
+    }
+    .scroll-line {
+      width: 1px; height: 60px; background: var(--border);
+      position: relative; overflow: hidden;
+    }
+    .scroll-line::after {
+      content: ''; position: absolute; top: -100%; left: 0; right: 0;
+      height: 100%; background: var(--gold);
+      animation: scrollDown 2s ease-in-out 1.5s infinite;
+    }
+    @keyframes scrollDown {
+      0% { top: -100%; } 100% { top: 200%; }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 120px 60px; }
+    .section-label {
+      font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 30px; height: 1px; background: var(--gold);
+    }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300; line-height: 1.1; color: var(--white);
+      margin-bottom: 24px;
+    }
+    .section-title em { font-style: italic; color: var(--gold-lt); }
+    .section-desc {
+      max-width: 560px; color: var(--muted); font-size: 14px; line-height: 1.9;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--dark); display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+    .about-visual {
+      position: relative; aspect-ratio: 3/4;
+    }
+    .about-frame {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--stone) 0%, #252018 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-frame svg { width: 60%; opacity: 0.15; }
+    .about-border {
+      position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px;
+      border: 1px solid var(--border); z-index: -1;
+    }
+    .about-year {
+      position: absolute; bottom: -24px; right: 0;
+      font-family: var(--font-display); font-size: 120px; font-weight: 300;
+      color: transparent; -webkit-text-stroke: 1px var(--border);
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 60px;
+    }
+    .stat-num {
+      font-family: var(--font-display); font-size: 52px; font-weight: 300;
+      color: var(--gold); line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-top: 6px;
+    }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { background: var(--black); }
+    .portfolio-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 70px; flex-wrap: wrap; gap: 24px;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 20px;
+    }
+    .proj {
+      position: relative; overflow: hidden; cursor: none;
+      background: var(--mid);
+    }
+    .proj:nth-child(1) { grid-column: 1 / 8; aspect-ratio: 16/10; }
+    .proj:nth-child(2) { grid-column: 8 / 13; aspect-ratio: 4/5; }
+    .proj:nth-child(3) { grid-column: 1 / 5; aspect-ratio: 4/5; }
+    .proj:nth-child(4) { grid-column: 5 / 13; aspect-ratio: 16/9; }
+
+    .proj-img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s var(--ease);
+    }
+    /* placeholder gradient images */
+    .proj-ph {
+      width: 100%; height: 100%;
+      transition: transform 0.7s var(--ease);
+    }
+    .proj:hover .proj-ph { transform: scale(1.05); }
+    .proj:hover .proj-img { transform: scale(1.05); }
+
+    .proj-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.4s;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 32px;
+    }
+    .proj:hover .proj-overlay { opacity: 1; }
+    .proj-cat {
+      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .proj-name {
+      font-family: var(--font-display); font-size: 26px; font-weight: 300;
+      color: var(--white); line-height: 1.2;
+    }
+    .proj-loc {
+      font-size: 12px; color: var(--muted); margin-top: 4px;
+    }
+
+    .proj-tag {
+      position: absolute; top: 20px; left: 20px;
+      background: var(--black); padding: 6px 14px;
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* placeholder image backgrounds */
+    .ph-1 { background: linear-gradient(135deg, #1e1a14 0%, #2a2318 50%, #1a1710 100%); }
+    .ph-2 { background: linear-gradient(135deg, #161310 0%, #222018 50%, #1c1a14 100%); }
+    .ph-3 { background: linear-gradient(160deg, #1a1814 0%, #252118 50%, #1e1b12 100%); }
+    .ph-4 { background: linear-gradient(120deg, #181512 0%, #201d18 50%, #16140f 100%); }
+
+    /* architectural line in placeholder */
+    .ph-inner {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ph-inner svg { opacity: 0.08; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark); display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+    .contact-info { padding-top: 8px; }
+    .contact-item {
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    .contact-item:first-child { border-top: 1px solid var(--border); }
+    .contact-item-label {
+      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .contact-item-val {
+      font-family: var(--font-display); font-size: 20px; font-weight: 300; color: var(--white);
+    }
+    .contact-item-val a { color: var(--white); text-decoration: none; transition: color 0.3s; }
+    .contact-item-val a:hover { color: var(--gold); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label {
+      font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--mid); border: 1px solid var(--border);
+      color: var(--white); font-family: var(--font-body); font-size: 14px; font-weight: 300;
+      padding: 14px 18px; outline: none;
+      transition: border-color 0.3s;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select { cursor: none; }
+
+    .btn-submit {
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 18px 44px; background: var(--gold); border: none;
+      color: var(--black); font-family: var(--font-body); font-size: 11px;
+      letter-spacing: 0.25em; text-transform: uppercase; cursor: none;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn-submit:hover { background: var(--gold-lt); }
+    .btn-submit svg { width: 16px; height: 16px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black); border-top: 1px solid var(--border);
+      padding: 48px 60px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+    }
+    .footer-copy {
+      font-size: 12px; color: var(--muted); letter-spacing: 0.05em;
+    }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a {
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 24px 36px; }
+      nav.scrolled { padding: 16px 36px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      #hero, section { padding-left: 36px; padding-right: 36px; }
+      #about, #contact, #philosophy { grid-template-columns: 1fr; gap: 60px; }
+      .about-visual { max-width: 400px; }
+      .hero-scroll { right: 36px; }
+      footer { padding: 36px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      #hero { padding: 0 24px 60px; }
+      section { padding: 80px 24px; }
+      .proj:nth-child(1) { grid-column: 1 / -1; }
+      .proj:nth-child(2) { grid-column: 1 / -1; aspect-ratio: 4/3; }
+      .proj:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 4/3; }
+      .proj:nth-child(4) { grid-column: 1 / -1; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+      .hero-scroll { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="cursor">
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+</div>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">Studio</a>
+  <a href="#portfolio" onclick="closeMobile()">Projects</a>
+  <a href="#philosophy" onclick="closeMobile()">Approach</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- RA monogram logo -->
+      <rect x="1" y="1" width="38" height="38" stroke="#c8a96e" stroke-width="0.8"/>
+      <text x="6" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="400" fill="#c8a96e" letter-spacing="1">R</text>
+      <text x="19" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="400" fill="#c8a96e" letter-spacing="1">A</text>
+      <line x1="6" y1="32" x2="34" y2="32" stroke="#c8a96e" stroke-width="0.5" opacity="0.5"/>
+    </svg>
+    <div class="nav-logo-text">
+      Rožić Architects
+      <span>& Partners</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Studio</a></li>
+    <li><a href="#portfolio">Projects</a></li>
+    <li><a href="#philosophy">Approach</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- Architectural grid lines -->
+      <line x1="0" y1="200" x2="1440" y2="200" stroke="white" stroke-width="0.5"/>
+      <line x1="0" y1="600" x2="1440" y2="600" stroke="white" stroke-width="0.5"/>
+      <line x1="360" y1="0" x2="360" y2="900" stroke="white" stroke-width="0.5"/>
+      <line x1="1080" y1="0" x2="1080" y2="900" stroke="white" stroke-width="0.5"/>
+      <line x1="200" y1="0" x2="800" y2="900" stroke="white" stroke-width="0.3"/>
+      <line x1="900" y1="0" x2="1440" y2="600" stroke="white" stroke-width="0.3"/>
+      <!-- Floor plan shapes -->
+      <rect x="100" y="300" width="200" height="260" stroke="white" stroke-width="0.5" fill="none"/>
+      <rect x="140" y="340" width="120" height="80" stroke="white" stroke-width="0.3" fill="none"/>
+      <rect x="140" y="440" width="60" height="100" stroke="white" stroke-width="0.3" fill="none"/>
+      <rect x="1100" y="150" width="240" height="180" stroke="white" stroke-width="0.5" fill="none"/>
+      <rect x="1140" y="190" width="80" height="50" stroke="white" stroke-width="0.3" fill="none"/>
+    </svg>
+  </div>
+
+  <p class="hero-tag">Architecture Studio — Rijeka, Croatia</p>
+  <h1 class="hero-title">Space that<br><em>speaks</em></h1>
+  <p class="hero-sub">We design places that endure. From concept to completion — residential, commercial and public projects on the Adriatic coast and beyond.</p>
+  <div class="hero-cta">
+    <a href="#portfolio" class="btn-primary">
+      Our Projects
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#contact" class="btn-ghost">Get in touch</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-frame">
+      <!-- Architectural compass/blueprint SVG -->
+      <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="260" height="360" stroke="white" stroke-width="1"/>
+        <rect x="40" y="40" width="100" height="140" stroke="white" stroke-width="0.7" fill="none"/>
+        <rect x="160" y="40" width="100" height="80" stroke="white" stroke-width="0.7" fill="none"/>
+        <rect x="160" y="140" width="100" height="40" stroke="white" stroke-width="0.7" fill="none"/>
+        <rect x="40" y="200" width="220" height="80" stroke="white" stroke-width="0.7" fill="none"/>
+        <rect x="40" y="300" width="100" height="60" stroke="white" stroke-width="0.7" fill="none"/>
+        <rect x="160" y="300" width="100" height="60" stroke="white" stroke-width="0.7" fill="none"/>
+        <line x1="20" y1="200" x2="280" y2="200" stroke="white" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="3" fill="white" opacity="0.5"/>
+        <line x1="150" y1="40" x2="150" y2="260" stroke="white" stroke-width="0.3" stroke-dasharray="4,4"/>
+        <text x="30" y="16" font-family="monospace" font-size="8" fill="white" opacity="0.6">FLOOR PLAN — M 1:100</text>
+        <text x="220" y="395" font-family="monospace" font-size="7" fill="white" opacity="0.4">© RA+P 2024</text>
+      </svg>
+    </div>
+    <div class="about-border"></div>
+    <div class="about-year">02</div>
+  </div>
+
+  <div class="about-content">
+    <div class="section-label reveal">About the Studio</div>
+    <h2 class="section-title reveal reveal-delay-1">Design through<br><em>collaboration</em></h2>
+    <p class="section-desc reveal reveal-delay-2">
+      Studio Rožić Architects and Partners works on the design and realisation of a broad scope of housing, industrial and commercial projects. Our architects and engineers collaborate intensively — yet in a relaxed manner — believing that both the built and natural environment offer ample opportunities for improvement and development through design.
+    </p>
+    <p class="section-desc reveal reveal-delay-2" style="margin-top:20px;">
+      Founded in 2007 by Igor and Marija Rožić in Rijeka, Croatia, the studio has grown steadily over the years. In 2012, Maja Čukelj was promoted to partner. Today, the core team consists of six architects, expanded on a per-project basis from a trusted pool of collaborators.
+    </p>
+    <p class="section-desc reveal reveal-delay-2" style="margin-top:20px;">
+      Our most recent project is the master planning and architectural design for the JGL Pharma Valley development in Rijeka, Croatia.
+    </p>
+
+    <div class="about-stats">
+      <div class="reveal reveal-delay-1">
+        <div class="stat-num">17+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="stat-num">80+</div>
+        <div class="stat-label">Completed Projects</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Core Architects</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Studio Partners</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header">
+    <div>
+      <div class="section-label reveal">Portfolio</div>
+      <h2 class="section-title reveal reveal-delay-1">Selected<br><em>Projects</em></h2>
+    </div>
+    <p class="section-desc reveal reveal-delay-2" style="max-width:320px; font-size:13px;">
+      Each project is a chapter of its own. A selection from our archive of completed and award-winning works.
+    </p>
+  </div>
+
+  <div class="portfolio-grid">
+    <div class="proj reveal">
+      <div class="proj-ph ph-1" style="height:100%">
+        <div class="ph-inner">
+          <svg width="200" height="140" viewBox="0 0 200 140" fill="none">
+            <rect x="10" y="60" width="180" height="70" stroke="white" stroke-width="0.8"/>
+            <rect x="30" y="30" width="60" height="100" stroke="white" stroke-width="0.8"/>
+            <rect x="110" y="20" width="70" height="110" stroke="white" stroke-width="0.8"/>
+            <line x1="0" y1="130" x2="200" y2="130" stroke="white" stroke-width="0.5"/>
+            <rect x="45" y="90" width="20" height="40" stroke="white" stroke-width="0.5"/>
+            <rect x="125" y="85" width="30" height="45" stroke="white" stroke-width="0.5"/>
+          </svg>
+        </div>
+      </div>
+      <div class="proj-tag">Residential</div>
+      <div class="proj-overlay">
+        <div class="proj-cat">Residential Building</div>
+        <div class="proj-name">Vila Quarnero</div>
+        <div class="proj-loc">Opatija, 2023</div>
+      </div>
+    </div>
+
+    <div class="proj reveal reveal-delay-1">
+      <div class="proj-ph ph-2" style="height:100%">
+        <div class="ph-inner">
+          <svg width="120" height="180" viewBox="0 0 120 180" fill="none">
+            <rect x="10" y="40" width="100" height="130" stroke="white" stroke-width="0.8"/>
+            <line x1="10" y1="80" x2="110" y2="80" stroke="white" stroke-width="0.5"/>
+            <line x1="10" y1="120" x2="110" y2="120" stroke="white" stroke-width="0.5"/>
+            <rect x="25" y="50" width="30" height="20" stroke="white" stroke-width="0.5"/>
+            <rect x="65" y="50" width="30" height="20" stroke="white" stroke-width="0.5"/>
+            <rect x="40" y="150" width="40" height="20" stroke="white" stroke-width="0.5"/>
+            <polygon points="10,40 60,10 110,40" stroke="white" stroke-width="0.8" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="proj-tag">Public</div>
+      <div class="proj-overlay">
+        <div class="proj-cat">Public Institution</div>
+        <div class="proj-name">Rijeka Cultural Centre</div>
+        <div class="proj-loc">Rijeka, 2022</div>
+      </div>
+    </div>
+
+    <div class="proj reveal reveal-delay-1">
+      <div class="proj-ph ph-3" style="height:100%">
+        <div class="ph-inner">
+          <svg width="100" height="160" viewBox="0 0 100 160" fill="none">
+            <rect x="5" y="5" width="90" height="150" stroke="white" stroke-width="0.8"/>
+            <line x1="5" y1="40" x2="95" y2="40" stroke="white" stroke-width="0.4"/>
+            <line x1="5" y1="75" x2="95" y2="75" stroke="white" stroke-width="0.4"/>
+            <line x1="5" y1="110" x2="95" y2="110" stroke="white" stroke-width="0.4"/>
+            <rect x="15" y="50" width="20" height="16" stroke="white" stroke-width="0.4"/>
+            <rect x="45" y="50" width="20" height="16" stroke="white" stroke-width="0.4"/>
+            <rect x="65" y="50" width="20" height="16" stroke="white" stroke-width="0.4"/>
+          </svg>
+        </div>
+      </div>
+      <div class="proj-tag">Commercial</div>
+      <div class="proj-overlay">
+        <div class="proj-cat">Office Space</div>
+        <div class="proj-name">Tower Krk</div>
+        <div class="proj-loc">Krk, 2021</div>
+      </div>
+    </div>
+
+    <div class="proj reveal reveal-delay-2">
+      <div class="proj-ph ph-4" style="height:100%">
+        <div class="ph-inner">
+          <svg width="260" height="140" viewBox="0 0 260 140" fill="none">
+            <rect x="10" y="30" width="240" height="100" stroke="white" stroke-width="0.8"/>
+            <line x1="10" y1="70" x2="250" y2="70" stroke="white" stroke-width="0.4"/>
+            <rect x="20" y="40" width="40" height="25" stroke="white" stroke-width="0.4"/>
+            <rect x="70" y="40" width="40" height="25" stroke="white" stroke-width="0.4"/>
+            <rect x="150" y="40" width="40" height="25" stroke="white" stroke-width="0.4"/>
+            <rect x="200" y="40" width="40" height="25" stroke="white" stroke-width="0.4"/>
+            <rect x="90" y="80" width="80" height="50" stroke="white" stroke-width="0.5"/>
+            <line x1="0" y1="130" x2="260" y2="130" stroke="white" stroke-width="0.5"/>
+          </svg>
+        </div>
+      </div>
+      <div class="proj-tag">Residential</div>
+      <div class="proj-overlay">
+        <div class="proj-cat">Renovation</div>
+        <div class="proj-name">Palazzo Adriatico</div>
+        <div class="proj-loc">Pula, 2020</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY + TECH -->
+<section id="philosophy" style="background: var(--mid); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+  <div>
+    <div class="section-label reveal">Our Approach</div>
+    <h2 class="section-title reveal reveal-delay-1">Where does<br><em>inspiration</em> begin?</h2>
+    <p class="section-desc reveal reveal-delay-2" style="margin-top: 8px;">
+      We look for inspiration everywhere — in nature, technology, history and social interactions. Our dedication to each project begins with a focus on functionality and efficiency within budget constraints, then extends towards exploring design options that deliver the optimal impact of the new building or space.
+    </p>
+    <p class="section-desc reveal reveal-delay-2" style="margin-top: 20px;">
+      Our responsibilities towards the client are considered with the utmost attention, and by performing our craft in the public realm, we hold ourselves accountable to the community as well.
+    </p>
+  </div>
+  <div>
+    <div class="section-label reveal">Technology</div>
+    <h2 class="section-title reveal reveal-delay-1">Built on<br><em>BIM</em></h2>
+    <p class="section-desc reveal reveal-delay-2" style="margin-top: 8px;">
+      Through each new project we strive for improved coordination, design control and change management — freeing up time and energy for the project team to focus on what they do best: design.
+    </p>
+    <p class="section-desc reveal reveal-delay-2" style="margin-top: 20px;">
+      Clients and project managers gain access to in-depth project analysis and efficient tracking via the same database we use to develop all our projects — the Building Information Modelling (BIM) system Autodesk Revit, supported by Revit Server infrastructure that allows geographically distributed team members to work simultaneously on a single project file in real time.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info">
+    <div class="section-label reveal">Contact</div>
+    <h2 class="section-title reveal reveal-delay-1">Let's talk about<br>your <em>project</em></h2>
+    <p class="section-desc reveal reveal-delay-2" style="margin-bottom:48px;">
+      Every great project begins with a conversation. Reach out — we'd love to hear your idea and explore the possibilities together.
+    </p>
+
+    <div class="contact-item reveal">
+      <div class="contact-item-label">Address</div>
+      <div class="contact-item-val">Ulica Arhitekata 14, 51000 Rijeka</div>
+    </div>
+    <div class="contact-item reveal">
+      <div class="contact-item-label">Phone</div>
+      <div class="contact-item-val"><a href="tel:+38551000000">+385 51 000 000</a></div>
+    </div>
+    <div class="contact-item reveal">
+      <div class="contact-item-label">Email</div>
+      <div class="contact-item-val"><a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a></div>
+    </div>
+    <div class="contact-item reveal">
+      <div class="contact-item-label">Office Hours</div>
+      <div class="contact-item-val" style="font-size:16px;">Mon – Fri: 09:00 – 17:00</div>
+    </div>
+  </div>
+
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div class="form-group reveal">
+        <label for="ime">Full Name</label>
+        <input type="text" id="ime" placeholder="Ana Horvat" required />
+      </div>
+      <div class="form-group reveal reveal-delay-1">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="ana@example.com" required />
+      </div>
+    </div>
+    <div class="form-group reveal">
+      <label for="tip">Project Type</label>
+      <select id="tip">
+        <option value="">Select project type</option>
+        <option>Residential Building / Villa</option>
+        <option>Commercial Space</option>
+        <option>Renovation</option>
+        <option>Interior Design</option>
+        <option>Public Building</option>
+        <option>Urban Planning</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group reveal">
+      <label for="poruka">Your Message</label>
+      <textarea id="poruka" placeholder="Briefly describe your project or enquiry…" required></textarea>
+    </div>
+    <button type="submit" class="btn-submit reveal">
+      Send Enquiry
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <p id="form-success" style="display:none; color:var(--gold); font-size:13px; letter-spacing:0.05em;">
+      ✓ Thank you! Your message has been sent. We'll be in touch shortly.
+    </p>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">
+    © 2024 Rožić Architects & Partners d.o.o. — Rijeka, Croatia
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">GDPR</a>
+  </div>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursorDot = document.getElementById('cursor-dot');
+  const cursorRing = document.getElementById('cursor-ring');
+  let mx = -100, my = -100, rx = -100, ry = -100;
+
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animateCursor() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    cursorDot.style.transform = `translate(${mx}px, ${my}px)`;
+    cursorRing.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  document.querySelectorAll('a, button, .proj, select, input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+  });
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function toggleMobile() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  }
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    setTimeout(() => document.getElementById('form-success').style.display = 'none', 6000);
+  }
+</script>
+</body>
+</html>
