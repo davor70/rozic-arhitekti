@@ -1,73 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — Rožić Architects & Partners</title>
-  <meta name="description" content="Privacy Policy of Rožić Architects & Partners." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title data-en="Privacy Policy — Rožić Architects & Partners" data-hr="Politika privatnosti — Rožić Arhitekti i Partneri">Privacy Policy — Rožić Architects & Partners</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #0a0a0a; --dark: #111111; --mid: #1c1c1c; --border: #2a2a2a;
+      --black: #0a0a0a; --mid: #1c1c1c; --border: #2a2a2a;
       --gold: #c8a96e; --gold-lt: #e2c98f; --muted: #888880; --white: #fafaf8;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Montserrat', sans-serif;
-      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     html { scroll-behavior: smooth; }
     body { background: var(--black); color: var(--white); font-family: var(--font-body); font-weight: 300; font-size: 15px; line-height: 1.8; overflow-x: hidden; }
-
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 24px 60px; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(10,10,10,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; flex-shrink: 0; }
     .nav-logo svg { width: 32px; height: 32px; }
     .nav-logo-text { font-family: var(--font-display); font-size: 17px; font-weight: 400; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; line-height: 1.2; }
     .nav-logo-text span { display: block; font-size: 9px; font-family: var(--font-body); font-weight: 300; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
     .nav-back { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.3s; display: flex; align-items: center; gap: 8px; }
     .nav-back:hover { color: var(--gold); }
     .nav-back svg { width: 14px; height: 14px; }
-
-    /* HERO */
-    .legal-hero { padding: 160px 60px 80px; border-bottom: 1px solid var(--border); }
+    .lang-switch { display: flex; align-items: center; border: 1px solid var(--border); overflow: hidden; }
+    .lang-btn { background: none; border: none; color: var(--muted); font-family: var(--font-body); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 10px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .lang-btn.active { background: var(--gold); color: var(--black); }
+    .lang-btn:hover:not(.active) { color: var(--white); }
+    .lang-divider { width: 1px; background: var(--border); height: 20px; }
+    .legal-hero { padding: 140px 60px 72px; border-bottom: 1px solid var(--border); }
     .legal-tag { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
     .legal-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
-    .legal-title { font-family: var(--font-display); font-size: clamp(40px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: var(--white); }
+    .legal-title { font-family: var(--font-display); font-size: clamp(36px, 6vw, 76px); font-weight: 300; line-height: 1.05; color: var(--white); }
     .legal-title em { font-style: italic; color: var(--gold-lt); }
-    .legal-meta { margin-top: 28px; font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
-
-    /* CONTENT */
-    .legal-body { max-width: 780px; margin: 0 auto; padding: 80px 60px 120px; }
-    .legal-body h2 { font-family: var(--font-display); font-size: 28px; font-weight: 300; color: var(--white); margin: 56px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .legal-meta { margin-top: 24px; font-size: 12px; color: var(--muted); }
+    .legal-body { max-width: 780px; margin: 0 auto; padding: 72px 60px 100px; }
+    .legal-body h2 { font-family: var(--font-display); font-size: 26px; font-weight: 300; color: var(--white); margin: 52px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
     .legal-body h2:first-child { margin-top: 0; }
-    .legal-body h3 { font-family: var(--font-display); font-size: 20px; font-weight: 300; color: var(--gold-lt); margin: 32px 0 10px; }
-    .legal-body p { color: #aaa9a3; margin-bottom: 16px; font-size: 14px; }
-    .legal-body ul { color: #aaa9a3; font-size: 14px; padding-left: 20px; margin-bottom: 16px; }
-    .legal-body ul li { margin-bottom: 8px; }
+    .legal-body h3 { font-family: var(--font-display); font-size: 19px; font-weight: 300; color: var(--gold-lt); margin: 28px 0 8px; }
+    .legal-body p { color: #aaa9a3; margin-bottom: 14px; font-size: 14px; }
+    .legal-body ul { color: #aaa9a3; font-size: 14px; padding-left: 20px; margin-bottom: 14px; }
+    .legal-body ul li { margin-bottom: 7px; }
     .legal-body a { color: var(--gold); text-decoration: none; }
     .legal-body a:hover { text-decoration: underline; }
-    .legal-body .highlight { background: var(--mid); border-left: 2px solid var(--gold); padding: 20px 24px; margin: 24px 0; font-size: 14px; color: var(--muted); }
-
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .legal-body .highlight { background: var(--mid); border-left: 2px solid var(--gold); padding: 18px 22px; margin: 22px 0; font-size: 14px; color: var(--muted); }
+    
+    footer { border-top: 1px solid var(--border); padding: 36px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
     .footer-copy { font-size: 12px; color: var(--muted); }
-    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
     .footer-links a { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-links a.active { color: var(--gold); }
-
+    .footer-links a:hover, .footer-links a.active { color: var(--gold); }
     @media (max-width: 768px) {
-      nav { padding: 18px 24px; }
-      .legal-hero { padding: 120px 24px 60px; }
-      .legal-body { padding: 60px 24px 80px; }
-      footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+      nav { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+      .legal-hero { padding: 110px 20px 56px; }
+      .legal-body { padding: 52px 20px 72px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-logo">
     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,115 +71,123 @@
       <text x="19" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="400" fill="#c8a96e" letter-spacing="1">A</text>
       <line x1="6" y1="32" x2="34" y2="32" stroke="#c8a96e" stroke-width="0.5" opacity="0.5"/>
     </svg>
-    <div class="nav-logo-text">Rožić Architects <span>& Partners</span></div>
+    <div class="nav-logo-text" data-en="Rožić Architects" data-hr="Rožić Arhitekti">Rožić Architects<span data-en="&amp; Partners" data-hr="i Partneri">&amp; Partners</span></div>
   </a>
-  <a href="index.html" class="nav-back">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-    Back to Home
-  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span data-en="Back to Home" data-hr="Nazad na početnu">Back to Home</span>
+    </a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <div class="lang-divider"></div>
+      <button class="lang-btn" onclick="setLang('hr')">HR</button>
+    </div>
+  </div>
 </nav>
 
 <div class="legal-hero">
-  <div class="legal-tag">Legal</div>
-  <h1 class="legal-title">Privacy <em>Policy</em></h1>
-  <p class="legal-meta">Last updated: April 2024 &nbsp;·&nbsp; Rožić Architects & Partners d.o.o., Rijeka, Croatia</p>
+  <div class="legal-tag" data-en="Legal" data-hr="Pravno">Legal</div>
+  <h1 class="legal-title" data-en="Privacy <em>Policy</em>" data-hr="Politika <em>privatnosti</em>">Privacy <em>Policy</em></h1>
+  <p class="legal-meta" data-en="Last updated: April 2024 &nbsp;·&nbsp; Rožić Architects & Partners d.o.o., Rijeka, Croatia" data-hr="Zadnje ažuriranje: travanj 2024. &nbsp;·&nbsp; Rožić Arhitekti i Partneri d.o.o., Rijeka, Hrvatska">Last updated: April 2024 &nbsp;·&nbsp; Rožić Architects & Partners d.o.o., Rijeka, Croatia</p>
 </div>
 
 <div class="legal-body">
-  <div class="highlight">
-    Your privacy matters to us. This Policy explains what personal data we collect, why we collect it, and how we protect it. We do not sell your data to third parties.
-  </div>
+  <div class="highlight" data-en="Your privacy matters to us. This Policy explains what personal data we collect, why we collect it, and how we protect it. We do not sell your data to third parties." data-hr="Vaša privatnost nam je važna. Ova Politika objašnjava koje osobne podatke prikupljamo, zašto ih prikupljamo i kako ih štitimo. Ne prodajemo vaše podatke trećim stranama.">Your privacy matters to us. This Policy explains what personal data we collect, why we collect it, and how we protect it. We do not sell your data to third parties.</div>
 
-  <h2>1. Controller</h2>
-  <p>The data controller responsible for your personal data is:</p>
-  <p><strong style="color:var(--white)">Rožić Architects & Partners d.o.o.</strong><br>
-  Dražice Zamet 138a, 51000 Rijeka, Croatia<br>
-  Email: <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a><br>
-  Phone: +385 51 333 602</p>
+  <h2 data-en="1. Controller" data-hr="1. Voditelj obrade">1. Controller</h2>
+  <p data-en="The data controller responsible for your personal data is:" data-hr="Voditelj obrade osobnih podataka je:">The data controller responsible for your personal data is:</p>
+  <p><strong style="color:var(--white)">Rožić Architects &amp; Partners d.o.o.</strong><br>Dražice Zamet 138a, 51000 Rijeka, Croatia<br>Email: <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a><br><span data-en="Phone: +385 51 333 602" data-hr="Telefon: +385 51 333 602">Phone: +385 51 333 602</span></p>
 
-  <h2>2. Data We Collect</h2>
-  <h3>Information you provide directly</h3>
+  <h2 data-en="2. Data We Collect" data-hr="2. Podaci koje prikupljamo">2. Data We Collect</h2>
+  <h3 data-en="Information you provide directly" data-hr="Podaci koje nam izravno dostavljate">Information you provide directly</h3>
   <ul>
-    <li>Name and surname</li>
-    <li>Email address</li>
-    <li>Phone number (if provided)</li>
-    <li>Project type and description submitted via our contact form</li>
-    <li>Any other information you voluntarily include in your message</li>
+    <li data-en="Name and surname" data-hr="Ime i prezime">Name and surname</li>
+    <li data-en="Email address" data-hr="E-mail adresa">Email address</li>
+    <li data-en="Phone number (if provided)" data-hr="Broj telefona (ako je naveden)">Phone number (if provided)</li>
+    <li data-en="Project type and description submitted via our contact form" data-hr="Vrsta i opis projekta dostavljeni putem kontakt obrasca">Project type and description submitted via our contact form</li>
+    <li data-en="Any other information you voluntarily include in your message" data-hr="Sve ostale informacije koje dobrovoljno uključite u svoju poruku">Any other information you voluntarily include in your message</li>
   </ul>
-  <h3>Information collected automatically</h3>
+  <h3 data-en="Information collected automatically" data-hr="Podaci koji se prikupljaju automatski">Information collected automatically</h3>
   <ul>
-    <li>IP address and approximate geographic location</li>
-    <li>Browser type and version</li>
-    <li>Pages visited and time spent on our website</li>
-    <li>Referring website</li>
-    <li>Device type and operating system</li>
+    <li data-en="IP address and approximate geographic location" data-hr="IP adresa i otprilike geografska lokacija">IP address and approximate geographic location</li>
+    <li data-en="Browser type and version" data-hr="Vrsta i verzija preglednika">Browser type and version</li>
+    <li data-en="Pages visited and time spent on our website" data-hr="Posjećene stranice i vrijeme provedeno na web stranici">Pages visited and time spent on our website</li>
+    <li data-en="Referring website" data-hr="Web stranica s koje ste došli">Referring website</li>
+    <li data-en="Device type and operating system" data-hr="Vrsta uređaja i operativni sustav">Device type and operating system</li>
   </ul>
 
-  <h2>3. Purpose and Legal Basis</h2>
-  <p>We process your personal data for the following purposes:</p>
+  <h2 data-en="3. Purpose and Legal Basis" data-hr="3. Svrha i pravna osnova">3. Purpose and Legal Basis</h2>
   <ul>
-    <li><strong style="color:var(--white)">Responding to enquiries</strong> — to reply to messages sent via our contact form (legal basis: legitimate interest / pre-contractual measures).</li>
-    <li><strong style="color:var(--white)">Project communication</strong> — to manage ongoing client relationships and project correspondence (legal basis: performance of a contract).</li>
-    <li><strong style="color:var(--white)">Website analytics</strong> — to understand how visitors use our website and improve its content (legal basis: legitimate interest / consent where applicable).</li>
-    <li><strong style="color:var(--white)">Legal obligations</strong> — to comply with applicable Croatian and EU law (legal basis: legal obligation).</li>
+    <li><strong style="color:var(--white)" data-en="Responding to enquiries" data-hr="Odgovaranje na upite">Responding to enquiries</strong> — <span data-en="to reply to messages sent via our contact form (legal basis: legitimate interest / pre-contractual measures)." data-hr="za odgovor na poruke poslane putem kontakt obrasca (pravna osnova: legitimni interes / predugovorne mjere).">to reply to messages sent via our contact form (legal basis: legitimate interest / pre-contractual measures).</span></li>
+    <li><strong style="color:var(--white)" data-en="Project communication" data-hr="Projektna komunikacija">Project communication</strong> — <span data-en="to manage ongoing client relationships and project correspondence (legal basis: performance of a contract)." data-hr="za upravljanje tekućim klijentskim odnosima i projektnom korespondencijom (pravna osnova: izvršenje ugovora).">to manage ongoing client relationships and project correspondence (legal basis: performance of a contract).</span></li>
+    <li><strong style="color:var(--white)" data-en="Website analytics" data-hr="Analitika web stranice">Website analytics</strong> — <span data-en="to understand how visitors use our website (legal basis: legitimate interest / consent where applicable)." data-hr="za razumijevanje načina korištenja web stranice (pravna osnova: legitimni interes / privola gdje je primjenjivo).">to understand how visitors use our website (legal basis: legitimate interest / consent where applicable).</span></li>
+    <li><strong style="color:var(--white)" data-en="Legal obligations" data-hr="Zakonske obveze">Legal obligations</strong> — <span data-en="to comply with applicable Croatian and EU law (legal basis: legal obligation)." data-hr="za usklađenost s primjenjivim hrvatskim i europskim pravom (pravna osnova: zakonska obveza).">to comply with applicable Croatian and EU law (legal basis: legal obligation).</span></li>
   </ul>
 
-  <h2>4. Data Retention</h2>
-  <p>We retain your personal data only for as long as necessary to fulfil the purposes described in this Policy:</p>
+  <h2 data-en="4. Data Retention" data-hr="4. Čuvanje podataka">4. Data Retention</h2>
   <ul>
-    <li>Contact form enquiries: up to 2 years from last communication, unless a contractual relationship is established.</li>
-    <li>Client project records: up to 10 years in accordance with Croatian accounting and archiving legislation.</li>
-    <li>Analytics data: typically 14 months in aggregated, anonymised form.</li>
+    <li data-en="Contact form enquiries: up to 2 years from last communication." data-hr="Upiti putem kontakt obrasca: do 2 godine od zadnje komunikacije.">Contact form enquiries: up to 2 years from last communication.</li>
+    <li data-en="Client project records: up to 10 years in accordance with Croatian legislation." data-hr="Projektna dokumentacija: do 10 godina u skladu s hrvatskim zakonodavstvom.">Client project records: up to 10 years in accordance with Croatian legislation.</li>
+    <li data-en="Analytics data: typically 14 months in aggregated, anonymised form." data-hr="Analitički podaci: tipično 14 mjeseci u agregiranom, anonimiziranom obliku.">Analytics data: typically 14 months in aggregated, anonymised form.</li>
   </ul>
 
-  <h2>5. Sharing Your Data</h2>
-  <p>We do not sell, rent or trade your personal data. We may share it with:</p>
+  <h2 data-en="5. Sharing Your Data" data-hr="5. Dijeljenje podataka">5. Sharing Your Data</h2>
+  <p data-en="We do not sell, rent or trade your personal data. We may share it with IT service providers, professional advisors and public authorities when required by law." data-hr="Ne prodajemo, iznajmljujemo niti razmjenjujemo vaše osobne podatke. Možemo ih podijeliti s IT pružateljima usluga, stručnim savjetnicima i javnim tijelima kada to zahtijeva zakon.">We do not sell, rent or trade your personal data. We may share it with IT service providers, professional advisors and public authorities when required by law.</p>
+
+  <h2 data-en="6. Your Rights" data-hr="6. Vaša prava">6. Your Rights</h2>
   <ul>
-    <li><strong style="color:var(--white)">IT service providers</strong> — hosting, email and website infrastructure providers who process data on our behalf under data processing agreements.</li>
-    <li><strong style="color:var(--white)">Professional advisors</strong> — lawyers and accountants bound by professional confidentiality obligations.</li>
-    <li><strong style="color:var(--white)">Public authorities</strong> — when required by Croatian or EU law.</li>
+    <li><strong style="color:var(--white)" data-en="Access" data-hr="Pristup">Access</strong>, <strong style="color:var(--white)" data-en="Rectification" data-hr="Ispravak">Rectification</strong>, <strong style="color:var(--white)" data-en="Erasure" data-hr="Brisanje">Erasure</strong>, <strong style="color:var(--white)" data-en="Restriction" data-hr="Ograničenje">Restriction</strong>, <strong style="color:var(--white)" data-en="Portability" data-hr="Prenosivost">Portability</strong>, <strong style="color:var(--white)" data-en="Objection" data-hr="Prigovor">Objection</strong></li>
   </ul>
-  <p>All third-party processors are required to maintain appropriate security measures and to process data only on our documented instructions.</p>
+  <p data-en='Contact us at <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a> — we will respond within 30 days. You may also complain to AZOP: <a href="https://azop.hr" target="_blank" rel="noopener">azop.hr</a>.' data-hr='Kontaktirajte nas na <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a> — odgovoriti ćemo u roku od 30 dana. Možete se obratiti i AZOP-u: <a href="https://azop.hr" target="_blank" rel="noopener">azop.hr</a>.'>Contact us at <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a> — we will respond within 30 days. You may also complain to AZOP: <a href="https://azop.hr" target="_blank" rel="noopener">azop.hr</a>.</p>
 
-  <h2>6. Your Rights</h2>
-  <p>Under the General Data Protection Regulation (GDPR) and applicable Croatian law, you have the right to:</p>
-  <ul>
-    <li><strong style="color:var(--white)">Access</strong> — request a copy of the personal data we hold about you.</li>
-    <li><strong style="color:var(--white)">Rectification</strong> — request correction of inaccurate or incomplete data.</li>
-    <li><strong style="color:var(--white)">Erasure</strong> — request deletion of your data, subject to legal retention obligations.</li>
-    <li><strong style="color:var(--white)">Restriction</strong> — request that we restrict processing of your data in certain circumstances.</li>
-    <li><strong style="color:var(--white)">Portability</strong> — receive your data in a structured, machine-readable format.</li>
-    <li><strong style="color:var(--white)">Objection</strong> — object to processing based on legitimate interests.</li>
-    <li><strong style="color:var(--white)">Withdraw consent</strong> — where processing is based on your consent, withdraw it at any time without affecting prior processing.</li>
-  </ul>
-  <p>To exercise any of these rights, contact us at <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a>. We will respond within 30 days. You also have the right to lodge a complaint with the Croatian Personal Data Protection Agency (AZOP): <a href="https://azop.hr" target="_blank" rel="noopener">azop.hr</a>.</p>
+  <h2 data-en="7. Security" data-hr="7. Sigurnost">7. Security</h2>
+  <p data-en="We implement appropriate technical and organisational measures to protect your personal data. Our website is served over HTTPS." data-hr="Provodimo odgovarajuće tehničke i organizacijske mjere zaštite osobnih podataka. Naša web stranica koristi HTTPS.">We implement appropriate technical and organisational measures to protect your personal data. Our website is served over HTTPS.</p>
 
-  <h2>7. Security</h2>
-  <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, disclosure, alteration or destruction. Our website is served over HTTPS and access to personal data is restricted to authorised personnel only.</p>
+  <h2 data-en="8. International Transfers" data-hr="8. Međunarodni prijenosi">8. International Transfers</h2>
+  <p data-en="Where we transfer personal data outside the EEA, we ensure appropriate safeguards are in place, such as Standard Contractual Clauses approved by the European Commission." data-hr="Kada prenosimo podatke izvan EGP-a, osiguravamo odgovarajuće zaštitne mjere, poput standardnih ugovornih klauzula koje je odobrila Europska komisija.">Where we transfer personal data outside the EEA, we ensure appropriate safeguards are in place, such as Standard Contractual Clauses approved by the European Commission.</p>
 
-  <h2>8. International Transfers</h2>
-  <p>Where we transfer personal data outside the European Economic Area (EEA), we ensure that appropriate safeguards are in place, such as Standard Contractual Clauses approved by the European Commission.</p>
+  <h2 data-en="9. Children" data-hr="9. Djeca">9. Children</h2>
+  <p data-en="Our website is not directed at persons under 16. We do not knowingly collect data from children." data-hr="Naša web stranica nije namijenjena osobama mlađim od 16 godina. Ne prikupljamo podatke djece.">Our website is not directed at persons under 16. We do not knowingly collect data from children.</p>
 
-  <h2>9. Children</h2>
-  <p>Our website and services are not directed at persons under the age of 16. We do not knowingly collect personal data from children. If you believe we have inadvertently collected such data, please contact us immediately.</p>
+  <h2 data-en="10. Changes to This Policy" data-hr="10. Promjene ove Politike">10. Changes to This Policy</h2>
+  <p data-en="We may update this Privacy Policy from time to time. The date at the top indicates when it was last revised." data-hr="Ovu Politiku privatnosti možemo povremeno ažurirati. Datum na vrhu označava kada je zadnji put izmijenjena.">We may update this Privacy Policy from time to time. The date at the top indicates when it was last revised.</p>
 
-  <h2>10. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. The date at the top of this page indicates when it was last revised. We encourage you to review it periodically. Material changes will be communicated prominently on our website.</p>
-
-  <h2>11. Contact</h2>
-  <p>For any questions or requests regarding this Privacy Policy, please contact us at:<br>
-  <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a></p>
+  <h2 data-en="11. Contact" data-hr="11. Kontakt">11. Contact</h2>
+  <p><a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a></p>
 </div>
 
 <footer>
-  <div class="footer-copy">© 2024 Rožić Architects & Partners d.o.o. — Rijeka, Croatia</div>
+  <div class="footer-copy" data-en="© 2024 Rožić Architects &amp; Partners d.o.o. — Rijeka, Croatia" data-hr="© 2024 Rožić Arhitekti i Partneri d.o.o. — Rijeka, Hrvatska">
+    © 2024 Rožić Architects &amp; Partners d.o.o. — Rijeka, Croatia
+  </div>
   <div class="footer-links">
-    <a href="privacy.html" class="active">Privacy</a>
-    <a href="gdpr.html">GDPR</a>
-    <a href="cookies.html">Cookies</a>
-    <a href="terms.html">Terms</a>
+    <a href="privacy.html" class="active" data-en="Privacy" data-hr="Privatnost">Privacy</a>
+    <a href="gdpr.html" data-en="GDPR" data-hr="GDPR">GDPR</a>
+    <a href="cookies.html" data-en="Cookies" data-hr="Kolačići">Cookies</a>
+    <a href="terms.html" data-en="Terms" data-hr="Uvjeti">Terms</a>
   </div>
 </footer>
 
+<script>
+  let currentLang = localStorage.getItem('ra-lang') || 'en';
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('ra-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const txt = el.getAttribute('data-' + lang);
+      if (!txt) return;
+      if (txt.includes('<')) { el.innerHTML = txt; } else { el.textContent = txt; }
+    });
+    const t = document.querySelector('title');
+    if (t) t.textContent = t.getAttribute('data-' + lang) || t.textContent;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isEN = btn.textContent.trim() === 'EN';
+      btn.classList.toggle('active', (lang==='en'&&isEN)||(lang==='hr'&&!isEN));
+    });
+  }
+  setLang(currentLang);
+</script>
 </body>
 </html>

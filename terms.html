@@ -1,62 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Use — Rožić Architects & Partners</title>
-  <meta name="description" content="Terms of Use for the Rožić Architects & Partners website." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title data-en="Terms of Use — Rožić Architects & Partners" data-hr="Uvjeti korištenja — Rožić Arhitekti i Partneri">Terms of Use — Rožić Architects & Partners</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #0a0a0a; --dark: #111111; --mid: #1c1c1c; --border: #2a2a2a;
+      --black: #0a0a0a; --mid: #1c1c1c; --border: #2a2a2a;
       --gold: #c8a96e; --gold-lt: #e2c98f; --muted: #888880; --white: #fafaf8;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Montserrat', sans-serif;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--black); color: var(--white); font-family: var(--font-body); font-weight: 300; font-size: 15px; line-height: 1.8; overflow-x: hidden; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 24px 60px; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(10,10,10,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; flex-shrink: 0; }
     .nav-logo svg { width: 32px; height: 32px; }
     .nav-logo-text { font-family: var(--font-display); font-size: 17px; font-weight: 400; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; line-height: 1.2; }
     .nav-logo-text span { display: block; font-size: 9px; font-family: var(--font-body); font-weight: 300; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
     .nav-back { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.3s; display: flex; align-items: center; gap: 8px; }
     .nav-back:hover { color: var(--gold); }
     .nav-back svg { width: 14px; height: 14px; }
-    .legal-hero { padding: 160px 60px 80px; border-bottom: 1px solid var(--border); }
+    .lang-switch { display: flex; align-items: center; border: 1px solid var(--border); overflow: hidden; }
+    .lang-btn { background: none; border: none; color: var(--muted); font-family: var(--font-body); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 10px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .lang-btn.active { background: var(--gold); color: var(--black); }
+    .lang-btn:hover:not(.active) { color: var(--white); }
+    .lang-divider { width: 1px; background: var(--border); height: 20px; }
+    .legal-hero { padding: 140px 60px 72px; border-bottom: 1px solid var(--border); }
     .legal-tag { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
     .legal-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
-    .legal-title { font-family: var(--font-display); font-size: clamp(40px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: var(--white); }
+    .legal-title { font-family: var(--font-display); font-size: clamp(36px, 6vw, 76px); font-weight: 300; line-height: 1.05; color: var(--white); }
     .legal-title em { font-style: italic; color: var(--gold-lt); }
-    .legal-meta { margin-top: 28px; font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
-    .legal-body { max-width: 780px; margin: 0 auto; padding: 80px 60px 120px; }
-    .legal-body h2 { font-family: var(--font-display); font-size: 28px; font-weight: 300; color: var(--white); margin: 56px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .legal-meta { margin-top: 24px; font-size: 12px; color: var(--muted); }
+    .legal-body { max-width: 780px; margin: 0 auto; padding: 72px 60px 100px; }
+    .legal-body h2 { font-family: var(--font-display); font-size: 26px; font-weight: 300; color: var(--white); margin: 52px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
     .legal-body h2:first-child { margin-top: 0; }
-    .legal-body h3 { font-family: var(--font-display); font-size: 20px; font-weight: 300; color: var(--gold-lt); margin: 32px 0 10px; }
-    .legal-body p { color: #aaa9a3; margin-bottom: 16px; font-size: 14px; }
-    .legal-body ul { color: #aaa9a3; font-size: 14px; padding-left: 20px; margin-bottom: 16px; }
-    .legal-body ul li { margin-bottom: 8px; }
+    .legal-body h3 { font-family: var(--font-display); font-size: 19px; font-weight: 300; color: var(--gold-lt); margin: 28px 0 8px; }
+    .legal-body p { color: #aaa9a3; margin-bottom: 14px; font-size: 14px; }
+    .legal-body ul { color: #aaa9a3; font-size: 14px; padding-left: 20px; margin-bottom: 14px; }
+    .legal-body ul li { margin-bottom: 7px; }
     .legal-body a { color: var(--gold); text-decoration: none; }
     .legal-body a:hover { text-decoration: underline; }
-    .legal-body .highlight { background: var(--mid); border-left: 2px solid var(--gold); padding: 20px 24px; margin: 24px 0; font-size: 14px; color: var(--muted); }
-    footer { border-top: 1px solid var(--border); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .legal-body .highlight { background: var(--mid); border-left: 2px solid var(--gold); padding: 18px 22px; margin: 22px 0; font-size: 14px; color: var(--muted); }
+    
+    footer { border-top: 1px solid var(--border); padding: 36px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
     .footer-copy { font-size: 12px; color: var(--muted); }
-    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
     .footer-links a { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
     .footer-links a:hover, .footer-links a.active { color: var(--gold); }
     @media (max-width: 768px) {
-      nav { padding: 18px 24px; }
-      .legal-hero { padding: 120px 24px 60px; }
-      .legal-body { padding: 60px 24px 80px; }
-      footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+      nav { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+      .legal-hero { padding: 110px 20px 56px; }
+      .legal-body { padding: 52px 20px 72px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-logo">
     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,99 +71,100 @@
       <text x="19" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="400" fill="#c8a96e" letter-spacing="1">A</text>
       <line x1="6" y1="32" x2="34" y2="32" stroke="#c8a96e" stroke-width="0.5" opacity="0.5"/>
     </svg>
-    <div class="nav-logo-text">Rožić Architects <span>& Partners</span></div>
+    <div class="nav-logo-text" data-en="Rožić Architects" data-hr="Rožić Arhitekti">Rožić Architects<span data-en="&amp; Partners" data-hr="i Partneri">&amp; Partners</span></div>
   </a>
-  <a href="index.html" class="nav-back">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-    Back to Home
-  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span data-en="Back to Home" data-hr="Nazad na početnu">Back to Home</span>
+    </a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <div class="lang-divider"></div>
+      <button class="lang-btn" onclick="setLang('hr')">HR</button>
+    </div>
+  </div>
 </nav>
 
 <div class="legal-hero">
-  <div class="legal-tag">Legal</div>
-  <h1 class="legal-title">Terms <em>of Use</em></h1>
-  <p class="legal-meta">Last updated: April 2024 &nbsp;·&nbsp; Rožić Architects & Partners d.o.o., Rijeka, Croatia</p>
+  <div class="legal-tag" data-en="Legal" data-hr="Pravno">Legal</div>
+  <h1 class="legal-title" data-en="Terms <em>of Use</em>" data-hr="Uvjeti <em>korištenja</em>">Terms <em>of Use</em></h1>
+  <p class="legal-meta" data-en="Last updated: April 2024 &nbsp;·&nbsp; Rožić Architects & Partners d.o.o., Rijeka, Croatia" data-hr="Zadnje ažuriranje: travanj 2024. &nbsp;·&nbsp; Rožić Arhitekti i Partneri d.o.o., Rijeka, Hrvatska">Last updated: April 2024 &nbsp;·&nbsp; Rožić Architects & Partners d.o.o., Rijeka, Croatia</p>
 </div>
 
 <div class="legal-body">
-  <div class="highlight">
-    By accessing and using this website, you agree to be bound by these Terms of Use. Please read them carefully before continuing.
-  </div>
+  <div class="highlight" data-en="By accessing and using this website, you agree to be bound by these Terms of Use. Please read them carefully before continuing." data-hr="Pristupanjem i korištenjem ove web stranice pristajete na obaveznost ovih Uvjeta korištenja. Pažljivo ih pročitajte prije nastavka.">By accessing and using this website, you agree to be bound by these Terms of Use. Please read them carefully before continuing.</div>
 
-  <h2>1. General Information</h2>
-  <p>This website is operated by:</p>
-  <p><strong style="color:var(--white)">Rožić Architects & Partners d.o.o.</strong><br>
-  Ulica Arhitekata 14, 51000 Rijeka, Croatia<br>
-  Registration number (MBS): [insert]<br>
-  VAT number (OIB): [insert]<br>
+  <h2 data-en="1. General Information" data-hr="1. Opće informacije">1. General Information</h2>
+  <p data-en="This website is operated by:" data-hr="Ovu web stranicu vodi:">This website is operated by:</p>
+  <p><strong style="color:var(--white)">Rožić Architects &amp; Partners d.o.o.</strong><br>
+  Dražice Zamet 138a, 51000 Rijeka, Croatia<br>
+  <span data-en="Registration number (MBS): [insert]" data-hr="Matični broj (MBS): [upisati]">Registration number (MBS): [insert]</span><br>
+  <span data-en="VAT number (OIB): [insert]" data-hr="OIB: [upisati]">VAT number (OIB): [insert]</span><br>
   Email: <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a></p>
-  <p>These Terms of Use govern your access to and use of the website at <a href="https://www.rozic-arhitekti.hr">www.rozic-arhitekti.hr</a> (the "Website"). By using the Website, you confirm that you have read, understood and agree to these Terms.</p>
 
-  <h2>2. Use of the Website</h2>
-  <p>You may use this Website for lawful purposes only and in a manner consistent with these Terms. You agree not to:</p>
+  <h2 data-en="2. Use of the Website" data-hr="2. Korištenje web stranice">2. Use of the Website</h2>
+  <p data-en="You may use this Website for lawful purposes only. You agree not to:" data-hr="Web stranicu smijete koristiti samo u zakonite svrhe. Obvezujete se da nećete:">You may use this Website for lawful purposes only. You agree not to:</p>
   <ul>
-    <li>Use the Website in any way that violates applicable local, national or international law or regulation.</li>
-    <li>Transmit any unsolicited or unauthorised advertising or promotional material (spam).</li>
-    <li>Attempt to gain unauthorised access to any part of the Website, its server, or any database connected to it.</li>
-    <li>Attack the Website via a denial-of-service attack or any other harmful technique.</li>
-    <li>Use automated tools to scrape, crawl or extract content from the Website without our prior written consent.</li>
-    <li>Misrepresent your identity or affiliation with any person or organisation.</li>
+    <li data-en="Violate applicable local, national or international law or regulation." data-hr="Kršiti primjenjivo lokalno, nacionalno ili međunarodno pravo.">Violate applicable local, national or international law or regulation.</li>
+    <li data-en="Transmit any unsolicited or unauthorised advertising or promotional material (spam)." data-hr="Slati neželjeni ili neovlašteni reklamni materijal (spam).">Transmit any unsolicited or unauthorised advertising or promotional material (spam).</li>
+    <li data-en="Attempt to gain unauthorised access to any part of the Website or its server." data-hr="Pokušati neovlašteno pristupiti bilo kojem dijelu web stranice ili njenom poslužitelju.">Attempt to gain unauthorised access to any part of the Website or its server.</li>
+    <li data-en="Use automated tools to scrape or extract content without prior written consent." data-hr="Koristiti automatizirane alate za preuzimanje ili ekstrakciju sadržaja bez prethodnog pisanog pristanka.">Use automated tools to scrape or extract content without prior written consent.</li>
   </ul>
 
-  <h2>3. Intellectual Property</h2>
-  <p>All content on this Website — including but not limited to text, graphics, photographs, architectural drawings, project images, logos, and the overall design — is the exclusive property of Rožić Architects & Partners d.o.o. or its licensors and is protected under Croatian and international copyright law.</p>
-  <p>You may view, print or download content from the Website for your personal, non-commercial use only. Any other use — including reproduction, distribution, modification, public display or commercial exploitation — requires our prior written permission.</p>
-  <p>The name "Rožić Architects & Partners", the RA monogram and associated marks are trade names and/or registered marks of Rožić Architects & Partners d.o.o. You may not use them without our express written consent.</p>
+  <h2 data-en="3. Intellectual Property" data-hr="3. Intelektualno vlasništvo">3. Intellectual Property</h2>
+  <p data-en="All content on this Website — text, graphics, photographs, architectural drawings, project images, logos and overall design — is the exclusive property of Rožić Architects &amp; Partners d.o.o. or its licensors, protected under Croatian and international copyright law." data-hr="Sav sadržaj na ovoj web stranici — tekstovi, grafike, fotografije, arhitektonski crteži, slike projekata, logotipi i cjelokupni dizajn — isključivo je vlasništvo Rožić Arhitekti i Partneri d.o.o. ili njezinih davatelja licenci, zaštićeno hrvatskim i međunarodnim autorskim pravom.">All content on this Website — text, graphics, photographs, architectural drawings, project images, logos and overall design — is the exclusive property of Rožić Architects &amp; Partners d.o.o. or its licensors, protected under Croatian and international copyright law.</p>
 
-  <h2>4. Contact Form &amp; Enquiries</h2>
-  <p>By submitting an enquiry through our contact form, you acknowledge that:</p>
-  <ul>
-    <li>You are providing accurate and truthful information.</li>
-    <li>Your personal data will be processed in accordance with our <a href="privacy.html">Privacy Policy</a>.</li>
-    <li>Submission of an enquiry does not create a contractual relationship or any obligation on our part to respond or provide services.</li>
-    <li>Any ideas, concepts or project descriptions submitted remain your property; however, we are not obliged to treat them as confidential unless a separate non-disclosure agreement is in place.</li>
-  </ul>
+  <h2 data-en="4. Contact Form &amp; Enquiries" data-hr="4. Kontakt obrazac i upiti">4. Contact Form &amp; Enquiries</h2>
+  <p data-en="By submitting an enquiry, you acknowledge that you are providing accurate information and that your data will be processed in accordance with our Privacy Policy. Submission does not create a contractual obligation." data-hr="Slanjem upita potvrđujete da dostavljate točne informacije te da će se vaši podaci obrađivati u skladu s našom Politikom privatnosti. Slanje ne stvara ugovornu obvezu.">By submitting an enquiry, you acknowledge that you are providing accurate information and that your data will be processed in accordance with our <a href="privacy.html">Privacy Policy</a>. Submission does not create a contractual obligation.</p>
 
-  <h2>5. No Professional Advice</h2>
-  <p>The information published on this Website is provided for general informational and marketing purposes only. It does not constitute professional architectural, engineering, legal or financial advice. Any reliance you place on the content of this Website is strictly at your own risk. For professional advice tailored to your specific situation, please contact us directly.</p>
+  <h2 data-en="5. No Professional Advice" data-hr="5. Bez stručnog savjeta">5. No Professional Advice</h2>
+  <p data-en="The information on this Website is for general informational purposes only and does not constitute professional architectural, engineering, legal or financial advice." data-hr="Informacije na ovoj web stranici namijenjene su isključivo u opće informativne svrhe i ne predstavljaju stručni arhitektonski, inženjerski, pravni ili financijski savjet.">The information on this Website is for general informational purposes only and does not constitute professional architectural, engineering, legal or financial advice.</p>
 
-  <h2>6. Third-Party Links</h2>
-  <p>This Website may contain links to third-party websites for informational purposes. We have no control over the content or practices of those websites and accept no responsibility for them or for any loss or damage that may arise from your use of them. The inclusion of a link does not imply endorsement.</p>
+  <h2 data-en="6. Disclaimer of Warranties" data-hr="6. Odricanje od jamstava">6. Disclaimer of Warranties</h2>
+  <p data-en='This Website is provided on an "as is" and "as available" basis. We do not warrant that the Website will be available at all times, free from errors or free of viruses.' data-hr='Ova web stranica pruža se "kakva jest" i "kako je dostupna". Ne jamčimo da će web stranica biti dostupna u svakom trenutku, bez grešaka ili bez virusa.'>This Website is provided on an "as is" and "as available" basis. We do not warrant that the Website will be available at all times, free from errors or free of viruses.</p>
 
-  <h2>7. Disclaimer of Warranties</h2>
-  <p>This Website is provided on an "as is" and "as available" basis. To the fullest extent permitted by applicable law, we disclaim all warranties, express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose and non-infringement.</p>
-  <p>We do not warrant that:</p>
-  <ul>
-    <li>The Website will be available at all times or free from errors or interruptions.</li>
-    <li>The content is complete, accurate or up to date at all times.</li>
-    <li>The Website or the servers that make it available are free of viruses or other harmful components.</li>
-  </ul>
+  <h2 data-en="7. Governing Law &amp; Jurisdiction" data-hr="7. Mjerodavno pravo i nadležnost">7. Governing Law &amp; Jurisdiction</h2>
+  <p data-en="These Terms are governed by the laws of the Republic of Croatia. Any disputes shall be subject to the exclusive jurisdiction of the competent courts in Rijeka, Croatia." data-hr="Ovi Uvjeti uređeni su zakonima Republike Hrvatske. Sporovi su u isključivoj nadležnosti nadležnih sudova u Rijeci, Hrvatska.">These Terms are governed by the laws of the Republic of Croatia. Any disputes shall be subject to the exclusive jurisdiction of the competent courts in Rijeka, Croatia.</p>
 
-  <h2>8. Limitation of Liability</h2>
-  <p>To the fullest extent permitted by Croatian and EU law, Rožić Architects & Partners d.o.o. and its partners, employees and agents shall not be liable for any indirect, incidental, consequential or punitive damages arising from your use of, or inability to use, this Website or its content.</p>
-  <p>Nothing in these Terms excludes or limits our liability for fraud, death or personal injury caused by our negligence, or any other liability that cannot be excluded or limited under applicable law.</p>
+  <h2 data-en="8. Changes to These Terms" data-hr="8. Promjene ovih Uvjeta">8. Changes to These Terms</h2>
+  <p data-en="We reserve the right to modify these Terms at any time. Changes take effect upon publication. Your continued use of the Website constitutes acceptance of the revised Terms." data-hr="Zadržavamo pravo izmjene ovih Uvjeta u bilo koje vrijeme. Izmjene stupaju na snagu objavom. Nastavak korištenja web stranice znači prihvaćanje izmijenjenih Uvjeta.">We reserve the right to modify these Terms at any time. Changes take effect upon publication. Your continued use of the Website constitutes acceptance of the revised Terms.</p>
 
-  <h2>9. Governing Law &amp; Jurisdiction</h2>
-  <p>These Terms of Use and any dispute arising from or in connection with them shall be governed by and construed in accordance with the laws of the Republic of Croatia, without regard to its conflict of law provisions.</p>
-  <p>Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the competent courts in Rijeka, Croatia, unless mandatory consumer protection legislation provides otherwise.</p>
-
-  <h2>10. Changes to These Terms</h2>
-  <p>We reserve the right to modify these Terms of Use at any time. Changes take effect upon publication on this page. The date at the top of this page indicates when these Terms were last updated. Your continued use of the Website after any changes constitutes acceptance of the revised Terms.</p>
-
-  <h2>11. Contact</h2>
-  <p>If you have any questions about these Terms of Use, please contact us at:<br>
-  <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a></p>
+  <h2 data-en="9. Contact" data-hr="9. Kontakt">9. Contact</h2>
+  <p><a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a></p>
 </div>
 
 <footer>
-  <div class="footer-copy">© 2024 Rožić Architects & Partners d.o.o. — Rijeka, Croatia</div>
+  <div class="footer-copy" data-en="© 2024 Rožić Architects &amp; Partners d.o.o. — Rijeka, Croatia" data-hr="© 2024 Rožić Arhitekti i Partneri d.o.o. — Rijeka, Hrvatska">
+    © 2024 Rožić Architects &amp; Partners d.o.o. — Rijeka, Croatia
+  </div>
   <div class="footer-links">
-    <a href="privacy.html">Privacy</a>
-    <a href="gdpr.html">GDPR</a>
-    <a href="cookies.html">Cookies</a>
-    <a href="terms.html" class="active">Terms</a>
+    <a href="privacy.html" data-en="Privacy" data-hr="Privatnost">Privacy</a>
+    <a href="gdpr.html" data-en="GDPR" data-hr="GDPR">GDPR</a>
+    <a href="cookies.html" data-en="Cookies" data-hr="Kolačići">Cookies</a>
+    <a href="terms.html" class="active" data-en="Terms" data-hr="Uvjeti">Terms</a>
   </div>
 </footer>
 
+<script>
+  let currentLang = localStorage.getItem('ra-lang') || 'en';
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('ra-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const txt = el.getAttribute('data-' + lang);
+      if (!txt) return;
+      if (txt.includes('<')) { el.innerHTML = txt; } else { el.textContent = txt; }
+    });
+    const t = document.querySelector('title');
+    if (t) t.textContent = t.getAttribute('data-' + lang) || t.textContent;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isEN = btn.textContent.trim() === 'EN';
+      btn.classList.toggle('active', (lang==='en'&&isEN)||(lang==='hr'&&!isEN));
+    });
+  }
+  setLang(currentLang);
+</script>
 </body>
 </html>

@@ -1,73 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cookie Policy — Rožić Architects & Partners</title>
-  <meta name="description" content="Cookie Policy of Rožić Architects & Partners." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title data-en="Cookie Policy — Rožić Architects & Partners" data-hr="Politika kolačića — Rožić Arhitekti i Partneri">Cookie Policy — Rožić Architects & Partners</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #0a0a0a; --dark: #111111; --mid: #1c1c1c; --border: #2a2a2a;
+      --black: #0a0a0a; --mid: #1c1c1c; --border: #2a2a2a;
       --gold: #c8a96e; --gold-lt: #e2c98f; --muted: #888880; --white: #fafaf8;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Montserrat', sans-serif;
     }
     html { scroll-behavior: smooth; }
     body { background: var(--black); color: var(--white); font-family: var(--font-body); font-weight: 300; font-size: 15px; line-height: 1.8; overflow-x: hidden; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 24px 60px; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(10,10,10,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; flex-shrink: 0; }
     .nav-logo svg { width: 32px; height: 32px; }
     .nav-logo-text { font-family: var(--font-display); font-size: 17px; font-weight: 400; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; line-height: 1.2; }
     .nav-logo-text span { display: block; font-size: 9px; font-family: var(--font-body); font-weight: 300; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
     .nav-back { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.3s; display: flex; align-items: center; gap: 8px; }
     .nav-back:hover { color: var(--gold); }
     .nav-back svg { width: 14px; height: 14px; }
-    .legal-hero { padding: 160px 60px 80px; border-bottom: 1px solid var(--border); }
+    .lang-switch { display: flex; align-items: center; border: 1px solid var(--border); overflow: hidden; }
+    .lang-btn { background: none; border: none; color: var(--muted); font-family: var(--font-body); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 10px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .lang-btn.active { background: var(--gold); color: var(--black); }
+    .lang-btn:hover:not(.active) { color: var(--white); }
+    .lang-divider { width: 1px; background: var(--border); height: 20px; }
+    .legal-hero { padding: 140px 60px 72px; border-bottom: 1px solid var(--border); }
     .legal-tag { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
     .legal-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
-    .legal-title { font-family: var(--font-display); font-size: clamp(40px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: var(--white); }
+    .legal-title { font-family: var(--font-display); font-size: clamp(36px, 6vw, 76px); font-weight: 300; line-height: 1.05; color: var(--white); }
     .legal-title em { font-style: italic; color: var(--gold-lt); }
-    .legal-meta { margin-top: 28px; font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
-    .legal-body { max-width: 780px; margin: 0 auto; padding: 80px 60px 120px; }
-    .legal-body h2 { font-family: var(--font-display); font-size: 28px; font-weight: 300; color: var(--white); margin: 56px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .legal-meta { margin-top: 24px; font-size: 12px; color: var(--muted); }
+    .legal-body { max-width: 780px; margin: 0 auto; padding: 72px 60px 100px; }
+    .legal-body h2 { font-family: var(--font-display); font-size: 26px; font-weight: 300; color: var(--white); margin: 52px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
     .legal-body h2:first-child { margin-top: 0; }
-    .legal-body h3 { font-family: var(--font-display); font-size: 20px; font-weight: 300; color: var(--gold-lt); margin: 32px 0 10px; }
-    .legal-body p { color: #aaa9a3; margin-bottom: 16px; font-size: 14px; }
-    .legal-body ul { color: #aaa9a3; font-size: 14px; padding-left: 20px; margin-bottom: 16px; }
-    .legal-body ul li { margin-bottom: 8px; }
+    .legal-body h3 { font-family: var(--font-display); font-size: 19px; font-weight: 300; color: var(--gold-lt); margin: 28px 0 8px; }
+    .legal-body p { color: #aaa9a3; margin-bottom: 14px; font-size: 14px; }
+    .legal-body ul { color: #aaa9a3; font-size: 14px; padding-left: 20px; margin-bottom: 14px; }
+    .legal-body ul li { margin-bottom: 7px; }
     .legal-body a { color: var(--gold); text-decoration: none; }
     .legal-body a:hover { text-decoration: underline; }
-    .legal-body .highlight { background: var(--mid); border-left: 2px solid var(--gold); padding: 20px 24px; margin: 24px 0; font-size: 14px; color: var(--muted); }
-    /* Cookie table */
-    .cookie-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
-    .cookie-table th { text-align: left; padding: 12px 16px; background: var(--mid); color: var(--gold); font-weight: 400; letter-spacing: 0.1em; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
-    .cookie-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: #aaa9a3; vertical-align: top; }
+    .legal-body .highlight { background: var(--mid); border-left: 2px solid var(--gold); padding: 18px 22px; margin: 22px 0; font-size: 14px; color: var(--muted); }
+    .cookie-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+    .cookie-table th { text-align: left; padding: 10px 14px; background: var(--mid); color: var(--gold); font-weight: 400; letter-spacing: 0.1em; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    .cookie-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: #aaa9a3; vertical-align: top; }
     .cookie-table tr:last-child td { border-bottom: none; }
     .cookie-table td:first-child { color: var(--white); font-weight: 400; }
-    .badge { display: inline-block; padding: 2px 8px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid; border-radius: 2px; }
+    .badge { display: inline-block; padding: 2px 7px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid; border-radius: 2px; }
     .badge-essential { border-color: var(--gold); color: var(--gold); }
     .badge-analytics { border-color: #6e88c8; color: #6e88c8; }
     .badge-preference { border-color: #6ec8a9; color: #6ec8a9; }
-    footer { border-top: 1px solid var(--border); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    @media (max-width: 600px) { .cookie-table { display: block; overflow-x: auto; } }
+    footer { border-top: 1px solid var(--border); padding: 36px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
     .footer-copy { font-size: 12px; color: var(--muted); }
-    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
     .footer-links a { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
     .footer-links a:hover, .footer-links a.active { color: var(--gold); }
     @media (max-width: 768px) {
-      nav { padding: 18px 24px; }
-      .legal-hero { padding: 120px 24px 60px; }
-      .legal-body { padding: 60px 24px 80px; }
-      .cookie-table { display: block; overflow-x: auto; }
-      footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+      nav { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+      .legal-hero { padding: 110px 20px 56px; }
+      .legal-body { padding: 52px 20px 72px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-logo">
     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,127 +80,104 @@
       <text x="19" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="400" fill="#c8a96e" letter-spacing="1">A</text>
       <line x1="6" y1="32" x2="34" y2="32" stroke="#c8a96e" stroke-width="0.5" opacity="0.5"/>
     </svg>
-    <div class="nav-logo-text">Rožić Architects <span>& Partners</span></div>
+    <div class="nav-logo-text" data-en="Rožić Architects" data-hr="Rožić Arhitekti">Rožić Architects<span data-en="&amp; Partners" data-hr="i Partneri">&amp; Partners</span></div>
   </a>
-  <a href="index.html" class="nav-back">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-    Back to Home
-  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span data-en="Back to Home" data-hr="Nazad na početnu">Back to Home</span>
+    </a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <div class="lang-divider"></div>
+      <button class="lang-btn" onclick="setLang('hr')">HR</button>
+    </div>
+  </div>
 </nav>
 
 <div class="legal-hero">
-  <div class="legal-tag">Legal</div>
-  <h1 class="legal-title">Cookie <em>Policy</em></h1>
-  <p class="legal-meta">Last updated: April 2024 &nbsp;·&nbsp; Rožić Architects & Partners d.o.o., Rijeka, Croatia</p>
+  <div class="legal-tag" data-en="Legal" data-hr="Pravno">Legal</div>
+  <h1 class="legal-title" data-en="Cookie <em>Policy</em>" data-hr="Politika <em>kolačića</em>">Cookie <em>Policy</em></h1>
+  <p class="legal-meta" data-en="Last updated: April 2024 &nbsp;·&nbsp; Rožić Architects & Partners d.o.o., Rijeka, Croatia" data-hr="Zadnje ažuriranje: travanj 2024. &nbsp;·&nbsp; Rožić Arhitekti i Partneri d.o.o., Rijeka, Hrvatska">Last updated: April 2024 &nbsp;·&nbsp; Rožić Architects & Partners d.o.o., Rijeka, Croatia</p>
 </div>
 
 <div class="legal-body">
-  <div class="highlight">
-    This website uses cookies and similar technologies. This Policy explains what they are, which ones we use, and how you can manage your preferences.
-  </div>
+  <div class="highlight" data-en="This website uses cookies and similar technologies. This Policy explains what they are, which ones we use, and how you can manage your preferences." data-hr="Ova web stranica koristi kolačiće i slične tehnologije. Ova Politika objašnjava što su, koje koristimo i kako možete upravljati vašim preferencijama.">This website uses cookies and similar technologies. This Policy explains what they are, which ones we use, and how you can manage your preferences.</div>
 
-  <h2>1. What Are Cookies?</h2>
-  <p>Cookies are small text files placed on your device when you visit a website. They are widely used to make websites work more efficiently and to provide information to website owners.</p>
-  <p>Similar technologies include web beacons, pixel tags and local storage, which function in a comparable way. This Policy covers all such technologies collectively referred to as "cookies".</p>
+  <h2 data-en="1. What Are Cookies?" data-hr="1. Što su kolačići?">1. What Are Cookies?</h2>
+  <p data-en="Cookies are small text files placed on your device when you visit a website. They are widely used to make websites work efficiently and to provide information to website owners." data-hr="Kolačići su male tekstualne datoteke koje se postavljaju na vaš uređaj kada posjećujete web stranicu. Široko se koriste za učinkovito funkcioniranje web stranica i pružanje informacija vlasnicima stranica.">Cookies are small text files placed on your device when you visit a website. They are widely used to make websites work efficiently and to provide information to website owners.</p>
 
-  <h2>2. How We Use Cookies</h2>
-  <p>We use cookies for the following purposes:</p>
+  <h2 data-en="2. How We Use Cookies" data-hr="2. Kako koristimo kolačiće">2. How We Use Cookies</h2>
   <ul>
-    <li><strong style="color:var(--white)">Essential operation</strong> — to ensure the website functions correctly, including remembering your cookie preferences.</li>
-    <li><strong style="color:var(--white)">Analytics</strong> — to understand how visitors interact with our website, which pages are most visited, and where visitors come from, so we can improve the user experience.</li>
-    <li><strong style="color:var(--white)">Preferences</strong> — to remember settings you have chosen, such as language or display preferences.</li>
+    <li><strong style="color:var(--white)" data-en="Essential operation" data-hr="Neophodne funkcije">Essential operation</strong> — <span data-en="to ensure the website functions correctly, including remembering your cookie preferences." data-hr="za osiguravanje ispravnog funkcioniranja web stranice, uključujući pamćenje vaših preferencija kolačića.">to ensure the website functions correctly, including remembering your cookie preferences.</span></li>
+    <li><strong style="color:var(--white)" data-en="Analytics" data-hr="Analitika">Analytics</strong> — <span data-en="to understand how visitors interact with our website so we can improve the user experience." data-hr="za razumijevanje interakcije posjetitelja s web stranicom radi poboljšanja korisničkog iskustva.">to understand how visitors interact with our website so we can improve the user experience.</span></li>
+    <li><strong style="color:var(--white)" data-en="Preferences" data-hr="Preferencije">Preferences</strong> — <span data-en="to remember settings you have chosen, such as language or display preferences." data-hr="za pamćenje odabranih postavki, poput jezika ili preferencija prikaza.">to remember settings you have chosen, such as language or display preferences.</span></li>
   </ul>
-  <p>We do <strong style="color:var(--white)">not</strong> use cookies for advertising, behavioural tracking or to build profiles for third-party marketing purposes.</p>
 
-  <h2>3. Cookies We Use</h2>
-
+  <h2 data-en="3. Cookies We Use" data-hr="3. Kolačići koje koristimo">3. Cookies We Use</h2>
   <table class="cookie-table">
-    <thead>
-      <tr>
-        <th>Cookie Name</th>
-        <th>Type</th>
-        <th>Duration</th>
-        <th>Purpose</th>
-      </tr>
-    </thead>
+    <thead><tr>
+      <th data-en="Cookie Name" data-hr="Naziv kolačića">Cookie Name</th>
+      <th data-en="Type" data-hr="Vrsta">Type</th>
+      <th data-en="Duration" data-hr="Trajanje">Duration</th>
+      <th data-en="Purpose" data-hr="Svrha">Purpose</th>
+    </tr></thead>
     <tbody>
-      <tr>
-        <td>cookie_consent</td>
-        <td><span class="badge badge-essential">Essential</span></td>
-        <td>12 months</td>
-        <td>Stores your cookie consent preferences so you are not asked again on return visits.</td>
-      </tr>
-      <tr>
-        <td>_ga</td>
-        <td><span class="badge badge-analytics">Analytics</span></td>
-        <td>2 years</td>
-        <td>Google Analytics — distinguishes unique users by assigning a randomly generated number as a client identifier.</td>
-      </tr>
-      <tr>
-        <td>_ga_*</td>
-        <td><span class="badge badge-analytics">Analytics</span></td>
-        <td>2 years</td>
-        <td>Google Analytics — used to persist session state.</td>
-      </tr>
-      <tr>
-        <td>_gid</td>
-        <td><span class="badge badge-analytics">Analytics</span></td>
-        <td>24 hours</td>
-        <td>Google Analytics — distinguishes users for session-level reporting.</td>
-      </tr>
-      <tr>
-        <td>ra_pref</td>
-        <td><span class="badge badge-preference">Preference</span></td>
-        <td>6 months</td>
-        <td>Stores user interface preferences such as reduced motion settings.</td>
-      </tr>
+      <tr><td>cookie_consent</td><td><span class="badge badge-essential" data-en="Essential" data-hr="Neophodan">Essential</span></td><td data-en="12 months" data-hr="12 mjeseci">12 months</td><td data-en="Stores your cookie consent preferences." data-hr="Pohranjuje vaše preferencije privole za kolačiće.">Stores your cookie consent preferences.</td></tr>
+      <tr><td>_ga</td><td><span class="badge badge-analytics" data-en="Analytics" data-hr="Analitika">Analytics</span></td><td data-en="2 years" data-hr="2 godine">2 years</td><td data-en="Google Analytics — distinguishes unique users." data-hr="Google Analytics — razlikuje jedinstvene korisnike.">Google Analytics — distinguishes unique users.</td></tr>
+      <tr><td>_ga_*</td><td><span class="badge badge-analytics" data-en="Analytics" data-hr="Analitika">Analytics</span></td><td data-en="2 years" data-hr="2 godine">2 years</td><td data-en="Google Analytics — used to persist session state." data-hr="Google Analytics — čuva stanje sesije.">Google Analytics — used to persist session state.</td></tr>
+      <tr><td>_gid</td><td><span class="badge badge-analytics" data-en="Analytics" data-hr="Analitika">Analytics</span></td><td data-en="24 hours" data-hr="24 sata">24 hours</td><td data-en="Google Analytics — distinguishes users for session-level reporting." data-hr="Google Analytics — razlikuje korisnike za izvještaje na razini sesije.">Google Analytics — distinguishes users for session-level reporting.</td></tr>
+      <tr><td>ra_pref</td><td><span class="badge badge-preference" data-en="Preference" data-hr="Preferencija">Preference</span></td><td data-en="6 months" data-hr="6 mjeseci">6 months</td><td data-en="Stores user interface preferences such as language selection." data-hr="Pohranjuje preferencije sučelja kao što je odabir jezika.">Stores user interface preferences such as language selection.</td></tr>
     </tbody>
   </table>
 
-  <h2>4. Essential vs. Non-Essential Cookies</h2>
-  <h3>Essential cookies</h3>
-  <p>These are strictly necessary for the website to function. They do not require your consent under the ePrivacy Directive and Croatian law (ZZPO). You cannot opt out of essential cookies while using the website.</p>
-  <h3>Non-essential cookies (analytics &amp; preferences)</h3>
-  <p>These require your prior consent. When you first visit our website, a cookie banner will ask for your consent. You may accept all, accept only essential cookies, or customise your preferences at any time.</p>
-
-  <h2>5. Third-Party Cookies</h2>
-  <p>If we use Google Analytics, Google LLC may set cookies on your device. Google processes this data in accordance with its own Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>. We have enabled IP anonymisation so that your full IP address is never stored by Google.</p>
-  <p>We do not embed third-party social media plugins, advertising networks or external video players that would set additional third-party cookies without your knowledge.</p>
-
-  <h2>6. Managing Your Cookie Preferences</h2>
-  <p>You have several options for managing cookies:</p>
-  <h3>Via our cookie banner</h3>
-  <p>When you first visit our website, you will be presented with a cookie consent notice. You can choose to accept all cookies, essential cookies only, or customise your selection. You may change your preferences at any time by clearing your browser cookies and revisiting the site.</p>
-  <h3>Via your browser settings</h3>
-  <p>Most browsers allow you to refuse or delete cookies. The methods vary by browser; please refer to your browser's help documentation:</p>
+  <h2 data-en="4. Managing Your Preferences" data-hr="4. Upravljanje preferencijama">4. Managing Your Preferences</h2>
+  <p data-en="Most browsers allow you to refuse or delete cookies. Blocking all cookies may affect the functionality of this and other websites." data-hr="Većina preglednika omogućuje odbijanje ili brisanje kolačića. Blokiranje svih kolačića može utjecati na funkcionalnost ove i ostalih web stranica.">Most browsers allow you to refuse or delete cookies. Blocking all cookies may affect the functionality of this and other websites.</p>
   <ul>
     <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
     <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener">Mozilla Firefox</a></li>
     <li><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
     <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
   </ul>
-  <p>Please note that blocking all cookies may affect the functionality of this and other websites you visit.</p>
 
-  <h2>7. Legal Basis</h2>
-  <p>Essential cookies are set on the basis of our legitimate interest in operating a functional website (Article 6(1)(f) GDPR). Non-essential cookies are set only with your prior consent (Article 6(1)(a) GDPR), in accordance with the ePrivacy Directive and the Croatian Electronic Communications Act (Zakon o elektroničkim komunikacijama).</p>
+  <h2 data-en="5. Legal Basis" data-hr="5. Pravna osnova">5. Legal Basis</h2>
+  <p data-en="Essential cookies are set on the basis of legitimate interest (Art. 6(1)(f) GDPR). Non-essential cookies are set only with your prior consent (Art. 6(1)(a) GDPR)." data-hr="Neophodni kolačići postavljaju se temeljem legitimnog interesa (čl. 6(1)(f) GDPR). Neobvezni kolačići postavljaju se samo uz vašu prethodnu privolu (čl. 6(1)(a) GDPR).">Essential cookies are set on the basis of legitimate interest (Art. 6(1)(f) GDPR). Non-essential cookies are set only with your prior consent (Art. 6(1)(a) GDPR).</p>
 
-  <h2>8. Changes to This Policy</h2>
-  <p>We may update this Cookie Policy from time to time to reflect changes in technology, legislation or our practices. The date at the top of this page indicates when it was last revised.</p>
-
-  <h2>9. Contact</h2>
-  <p>For any questions about our use of cookies, please contact:<br>
-  <a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a></p>
+  <h2 data-en="6. Contact" data-hr="6. Kontakt">6. Contact</h2>
+  <p><a href="mailto:info@rozic-arhitekti.hr">info@rozic-arhitekti.hr</a></p>
 </div>
 
 <footer>
-  <div class="footer-copy">© 2024 Rožić Architects & Partners d.o.o. — Rijeka, Croatia</div>
+  <div class="footer-copy" data-en="© 2024 Rožić Architects &amp; Partners d.o.o. — Rijeka, Croatia" data-hr="© 2024 Rožić Arhitekti i Partneri d.o.o. — Rijeka, Hrvatska">
+    © 2024 Rožić Architects &amp; Partners d.o.o. — Rijeka, Croatia
+  </div>
   <div class="footer-links">
-    <a href="privacy.html">Privacy</a>
-    <a href="gdpr.html">GDPR</a>
-    <a href="cookies.html" class="active">Cookies</a>
-    <a href="terms.html">Terms</a>
+    <a href="privacy.html" data-en="Privacy" data-hr="Privatnost">Privacy</a>
+    <a href="gdpr.html" data-en="GDPR" data-hr="GDPR">GDPR</a>
+    <a href="cookies.html" class="active" data-en="Cookies" data-hr="Kolačići">Cookies</a>
+    <a href="terms.html" data-en="Terms" data-hr="Uvjeti">Terms</a>
   </div>
 </footer>
 
+<script>
+  let currentLang = localStorage.getItem('ra-lang') || 'en';
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('ra-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const txt = el.getAttribute('data-' + lang);
+      if (!txt) return;
+      if (txt.includes('<')) { el.innerHTML = txt; } else { el.textContent = txt; }
+    });
+    const t = document.querySelector('title');
+    if (t) t.textContent = t.getAttribute('data-' + lang) || t.textContent;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isEN = btn.textContent.trim() === 'EN';
+      btn.classList.toggle('active', (lang==='en'&&isEN)||(lang==='hr'&&!isEN));
+    });
+  }
+  setLang(currentLang);
+</script>
 </body>
 </html>
